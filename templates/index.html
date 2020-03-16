@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html >
+<h3>Welcome to LIFA Premier League Football Match Result Predictor</h3>
+</h7>This is a Logistic Regression model with a 67% accuracy. Input the 3 requested numbers as follows:</h7>
+<br>
+<br>
+</h12>- Home team win % is calculated by dividing the number of wins by the total number of mathes played for this team. Similar for the Away team. You can find these numbers in a regular Premier Leage table</h12>
+<br>
+<br>
+</h12>- Historical Home wins in previous meetings is usually precalculated and displayed on betting websites in the Statistics section for the match</h12>
+<br>
+<br>
+</h12>- All numbers must be entered without decimals - round to the nearest whole number</h12>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Deployment Tutorial 1</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">      
+</head>
+<body style="background: #000;">
+ <div class="login">
+	  <br>
+	   <br>
+	    <br>
+	    <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+	         <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="HOME TEAM WIN % (Number of wins/total matches played)" placeholder="HOME TEAM WIN % (Number of wins/total matches played)" required="required" />
+        <input type="text" name="AWAY TEAM WIN % (Number of wins/total matches played)" placeholder="AWAY TEAM WIN % (Number of wins/total matches played)" required="required" />
+		<input type="text" name="HISTORICAL HOME TEAM WIN % (in previous meetings)" placeholder="HISTORICAL HOME TEAM WIN % (in previous meetings)" required="required" />
+                  
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict result probabilitites</button>
+    </form>
+   <br>
+   {{ prediction_text }}
+     
+ </div>
+
+
+</body>
+</html>
