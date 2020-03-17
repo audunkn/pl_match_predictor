@@ -14,7 +14,7 @@
 <body>
  <div class="login">
 	<h1>LIFA Premier League Match Predictor</h1>
-    <h12>Welcome to LIFA Premier League Match Predictor! This is a Support Vector Machine classifier with an accuracy of 67%. Please note that this website is for showcase purposes only. LIFA takes no responsibilities for any losses occuring from odds betting based on the predictions from this model. Last updated 07.03.2020.</h12>
+    <h12>Welcome to LIFA Premier League Match Predictor! This is a Logistic Regression classifier with an accuracy of 66%. Please note that this website is for showcase purposes only. LIFA takes no responsibilities for any losses occuring from odds betting based on the predictions from this model. Last match day included in model data: 01.03.2020.</h12>
     <br>
     <br>
     <h12>To predict the probabilitites of match results in a particular match, you will have to provide 3 numbers:<h12>
@@ -29,13 +29,13 @@
     <h12>Historical Home wins: This is the number of times the Home team has won in previous meetings between the two teams you are predicting. This number is usually pre-calculated and displayed in the "Statistics" section for the match on common betting odds websites<h12> 
     <br>
     <br> 
-    <h12>Pleasae note that you can only sumbit whole numbers - any decimal number has to be rounded up or down<h12>
+    <h12>Please note that you can only sumbit whole numbers - any decimal number has to be rounded up or down<h12>
     <br>
     <br> 
     <h12>Input example: Home team win %: 38 | Away team win %: 34 | Historical Home wins: 40 (you only put in the numbers) <h12>
     <br>
     <br> 
-    <h12>When you push "Predict" - the output will show the probabilities for each match outcome<h12>    
+    <h12>When you push "Predict" - the output will show the probabilities for each match outcome. The highest probability is the most likely result from a statistical point of view.  A "Draw" prediction should not be left alone<h12>    
      
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
