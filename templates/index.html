@@ -40,9 +40,13 @@
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
     	<br>
-    	<input type="text" name="H_win" placeholder="Home team win %" required="required" />
-        <input type="text" name="A_win" placeholder="Away team win %" required="required" />
-		<input type="text" name="Hxy" placeholder="Historical Home wins" required="required" />
+    	<input type="text" name="HWIN" placeholder="HWIN" required="required" />
+        <input type="text" name="DRAW" placeholder="DRAW" required="required" />
+		<input type="text" name="AWIN" placeholder="AWIN" required="required" />
+        <input type="text" name="POhome" placeholder="POhome" required="required" />
+        <input type="text" name="POAway" placeholder="POAway" required="required" />
+        <input type="text" name="LastHome" placeholder="LastHome" required="required" />
+        <input type="text" name="LastAway" placeholder="LastAway" required="required" />
                 
         <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
     </form>
