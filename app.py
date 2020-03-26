@@ -1,7 +1,7 @@
 import numpy as np
 from flask import Flask, request, jsonify, render_template
 import pickle
-#np.set_printoptions(precision=2)
+np.set_printoptions(precision=1)
 
 app = Flask(__name__)
 model = pickle.load(open('model.pkl', 'rb'))
@@ -25,7 +25,7 @@ def predict():
 def results():
 
     data = request.get_json(force=True)
-    prediction = model.predict([np.array(list(data.values()))])
+    prediction = model.predict_proba([np.array(list(data.values()))])
 
     output = prediction[0]
     return jsonify(output)
