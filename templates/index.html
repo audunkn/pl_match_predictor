@@ -40,10 +40,11 @@
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
     	<br>
-    	<input type="text" name="HWIN" placeholder="HWIN" required="required" />
-        <input type="text" name="DRAW" placeholder="DRAW" required="required" />
-		<input type="text" name="AWIN" placeholder="AWIN" required="required" />
-                        
+    	<input type="text" name="HWINperc" placeholder="HWINperc" required="required" />
+        <input type="text" name="DRAWperc" placeholder="DRAWperc" required="required" />
+		<input type="text" name="AWINperc" placeholder="AWINperc" required="required" />
+        <input type="text" name="A_6" placeholder="A_6" required="required" />
+        <input type="text" name="B_6" placeholder="B_6" required="required" />
         <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
     </form>
 
