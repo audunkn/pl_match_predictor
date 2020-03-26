@@ -13,45 +13,50 @@
 
 <body>
  <div class="login">
-	<h1>LIFA Premier League Match Predictor</h1>
-    <h12>Welcome to LIFA Premier League Match Predictor! This is a Logistic Regression classifier. Please note that this website is for showcase purposes only. LIFA takes no responsibilities for any losses occuring from odds betting based on the predictions from this model. Last match day included in model data: 01.03.2020.</h12>
+	<h1>LIFA Premier League MatchPredictor</h1>
+    <h12>Welcome to Premier League MatchPredictor 1.0 - by Lambertseter Institute of Fotball Analysis ! This is a Support Vector Machine classifier with 65-70% accuracy and it is a stripped down and simplified version of LIFAs main model - TippekupongenGenerator 2.0</h12>
     <br>
     <br>
-    <h12>To predict the probabilitites of match results in a particular match, you will have to provide 3 numbers:<h12>
+    <h12>Please note that this website is for showcase purposes only. LIFA takes no responsibilities for any losses occuring from odds betting based on the predictions from this model. Last match day included in model data: 01.03.2020<h12>    
+    <br>  
+    <br>
+    <h12>To predict the most likely match result, you will have to provide 3 historical head-to-head numbers: HomeTeam Win %, Draw % and AwayTeam Win %<h12>
+    <br>  
+    <br> 
+    <h12>You will have to do three simple caluclations and put the numbers you get into the schema at the bottom of this page.<h12> 
+    <br> 
+    <p>You can find the numbers you need to do the calculations - here: 
+    <a href="https://www.premierleague.com/stats/head-to-head"
+       title="Preemier League head-to-head historcial match results">Premier League head-to-head statistics</a>.
     <br>
     <br>
-    <h12>Home team win %: This is number is calculated by taking the number of wins in this season divided by total matches played. You will find these two numbers in any official Premier Leauge table on the web<h12> 
+    <h12>On the Premier Leauge statistcs page - select HomeTeam and AwayTeam to see historical Wins, Draws and Losses for the two teams. Remember to use the "Current" option (not "All-time")<h12>
     <br>
     <br> 
-    <h12>Away team win %: Same procedure as above - but now you do the same calulation for the Away team<h12> 
+    <h12>Then you do some simple math - divide HomeTeam wins by total matches Played, Draws by total matches Played and finally AwayTeam wins by total matches Played.<h12>
     <br>
-    <br> 
-    <h12>Historical Home wins: This is the number of times the Home team has won in previous meetings between the two teams you are predicting. This number is usually pre-calculated and displayed in the "Statistics" section for the match on common betting odds websites<h12> 
     <br>
-    <br> 
-    <h12>Please note that you can only sumbit whole numbers - any decimal number has to be rounded up or down<h12>
+    <h12>Round the three numbers you get to the nearest whole number (no decimals) - put them into the schema and press "Predict"<h12>    
     <br>
-    <br> 
-    <h12>Input example: Home team win %: 38 | Away team win %: 34 | Historical Home wins: 40 (you only put in the numbers) <h12>
     <br>
-    <br> 
-    <h12>When you push "Predict" - the output will show the probabilities for each match outcome. The highest probability is the most likely result from a statistical point of view.  A "Draw" prediction should not be left alone<h12>    
-     
+    <h12>Here is an example of three input numbers: 43 36 21 <h12> 
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
     	<br>
-    	<input type="text" name="HWINperc" placeholder="HWINperc" required="required" />
-        <input type="text" name="DRAWperc" placeholder="DRAWperc" required="required" />
-		<input type="text" name="AWINperc" placeholder="AWINperc" required="required" />
+    	<input type="text" name="HomeTeam WIN %" placeholder="HomeTeam WIN %" required="required" />
+        <input type="text" name="DRAW %" placeholder="DRAW %" required="required" />
+		<input type="text" name="AwayTeam WIN %" placeholder="AwayTeam WIN %" required="required" />
         <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
     </form>
 
    <br>
    <br>
    {{ prediction_text }}
-   
-
-    <h12><h12>
+   <br>
+   <br>
+   <br>
+   <br>
+   <h12> LIFA uses R for data wrangling, Dataiku DSS for model exploration/optimization and Python/Flask, GitHub and Heroku for deployment<h12>
 
  </div>
 
