@@ -15,20 +15,26 @@ def predict():
 
     int_features = [int(x) for x in request.form.values()]
     final_features = [np.array(int_features)]
-    prediction = model.predict_proba(final_features)
+    prediction = model.predict(final_features)
+    prediction.astype(str)
+    #output = prediction
+    if int(prediction)== 1: 
+            pred ='DRAW/AWAY '
+    else: 
+            pred ='HOME'
+    
+    return render_template('index.html', prediction_text='Most likely match result: {}'.format(pred))
+    
 
-    #output = round(prediction[0], 2)
-    output = prediction
-    return render_template('index.html', prediction_text='Home-Draw-Away {}'.format(output))
+#@app.route('/results',methods=['POST'])
+#def results():
 
-@app.route('/results',methods=['POST'])
-def results():
-
-    data = request.get_json(force=True)
-    prediction = model.predict_proba([np.array(list(data.values()))])
-
-    output = prediction[0]
-    return jsonify(output)
+ #   data = request.get_json(force=True)
+  #  prediction = model.predict([np.array(list(data.values()))])
+   
+    
+   # output = prediction[0]
+    #return jsonify(output)
 
 if __name__ == "__main__":
     app.run(debug=True)
